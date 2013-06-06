@@ -1,4 +1,6 @@
 Disorder::Application.routes.draw do
+  get "companies/index"
+
   get "users/new"
 
   # The priority is based upon order of creation:
