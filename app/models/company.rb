@@ -3,4 +3,5 @@ class Company < ActiveRecord::Base
 
   has_many :users
   has_many :addresses, :as => :addressable
+  has_many :users
 end

@@ -3,4 +3,5 @@ class User < ActiveRecord::Base
 
   belongs_to :company
   has_many :addresses, :as => :addressable
+  belongs_to :company
 end
