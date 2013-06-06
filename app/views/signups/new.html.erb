@@ -1,0 +1,30 @@
+<h1>Sign Up!</h1>
+
+<%= form_tag signups_path %>
+
+  <%= fields_for @company do |f| %>
+    <p>
+      <%= f.label :name, "Company name" %>
+      <%= f.text_field :name %>
+    </p>
+  <% end %>
+  
+  <%= fields_for @user do |f| %>
+    <p>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </p>
+    
+    <p>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </p>
+    
+    <p>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </p>
+  <% end %>
+
+  <%= submit_tag "Sign Up!" %>
+</form>
