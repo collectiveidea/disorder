@@ -6,9 +6,11 @@ namespace :data do
       address = FactoryGirl.create(:address)
       puts "Company: #{address.addressable.name}"
       
-      5.times do
+      rand(6).times do
         user = FactoryGirl.create(:user, :company => address.addressable)
-        FactoryGirl.create(:address, :addressable => user)
+        rand(4).times do
+          FactoryGirl.create(:address, :addressable => user)
+        end
         puts "    User: #{user.full_name}"
       end
     end
