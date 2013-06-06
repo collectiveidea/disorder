@@ -1,0 +1,20 @@
+<h1>Sign Up!</h1>
+
+<%= form_for @user, :url => signups_path do |form| %>
+
+  <p><%= @user.errors.full_messages if @user.errors.any? %></p>
+
+  <%= form.fields_for @user.company || Company.new do |fields| %>
+    <p>
+      <%= fields.label :name %>
+      <%= fields.text_field :name %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </p>
+  
+  <%= form.submit %>
+<% end %>

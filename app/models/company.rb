@@ -3,4 +3,6 @@ class Company < ActiveRecord::Base
 
   has_many :users
   has_many :addresses, :as => :addressable
+  
+  validates :name, :presence => true
 end
