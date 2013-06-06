@@ -1,2 +1,29 @@
-<h1>Companies#index</h1>
-<p>Find me in app/views/companies/index.html.erb</p>
+<h1><%= pluralize @companies.size, "company" %></h1>
+
+<% @companies.each do |company| %>
+  <div>
+    <h2><%= company.name %></h2>
+  
+    <h3>Addresses</h3>
+    <ul>
+      <% company.addresses.each do |address| %>
+        <li><%= address.street_line_1 %> <%= address.city %>, <%= address.region %> <%= address.postal_code %></li>
+      <% end %>
+    </ul>
+  
+    <h3>Users</h3>
+    <ul>
+      <% company.users.each do |user| %>
+        <li>
+          <b><%= user.full_name %></b>
+          <h4>Addresses</h4>
+          <ul>
+            <% user.addresses.each do |address| %>
+              <li><%= address.street_line_1 %> <%= address.city %>, <%= address.region %> <%= address.postal_code %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
