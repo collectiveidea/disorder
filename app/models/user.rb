@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
 
   belongs_to :company
   has_many :addresses, :as => :addressable
+  
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
