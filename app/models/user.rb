@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
   # attr_accessor :company_name
 
-  belongs_to :company
+  belongs_to :company, :touch => true
   has_many :addresses, :as => :addressable
   
   validates :first_name, :presence => true

@@ -1,6 +1,9 @@
 class Api::CompaniesController < ApplicationController
+
   def index
-    @companies = Company.all
+    ActiveSupport::Notifications.instrument "company.find" do
+      @companies = Company.all
+    end
     
     render :json => @companies
   end

@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+
+  # caches_action :index, :show
+
   # GET /articles
   # GET /articles.json
   def index
@@ -60,6 +63,8 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
+        # expire_action :action => :show
+        # expire_action :action => :index
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
         format.json { head :no_content }
       else
